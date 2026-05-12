@@ -493,7 +493,16 @@ h1::first-line,
 
 .feature-grid article {
   min-height: 218px;
-  padding: 26px 24px;
+  overflow: hidden;
+  padding: 0 24px 26px;
+}
+
+.feature-image {
+  width: calc(100% + 48px);
+  height: 150px;
+  margin: 0 -24px 22px;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(0.95);
 }
 
 .icon {
