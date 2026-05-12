@@ -196,16 +196,16 @@
           </ul>
         </div>
         <div class="comparison-card">
-          <div class="toggle" aria-label="Cost comparison">
-            <span>In-house</span>
-            <span>Pack and Flow</span>
+          <div class="toggle" role="group" aria-label="Cost comparison">
+            <button class="toggle-option active" type="button" data-savings-view="inhouse" aria-pressed="true">In-house</button>
+            <button class="toggle-option" type="button" data-savings-view="packflow" aria-pressed="false">Pack and Flow</button>
           </div>
-          <article>
-            <span class="price-label">Typical in-house setup</span>
-            <strong>$4,500+</strong>
-            <p>monthly combined labor, storage, supplies, and management time</p>
+          <article class="cost-card active" data-cost-card="inhouse">
+            <span class="price-label" data-cost-label>Typical in-house setup</span>
+            <strong data-cost-price>$4,500+</strong>
+            <p data-cost-copy>monthly combined labor, storage, supplies, and management time</p>
           </article>
-          <article class="highlight">
+          <article class="cost-card" data-cost-card="packflow">
             <span class="price-label">Fulfillment model</span>
             <strong>Custom</strong>
             <p>quote based on your order volume, storage needs, packaging, and channels</p>
