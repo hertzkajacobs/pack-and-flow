@@ -60,15 +60,17 @@ img {
 }
 
 .site-header {
-  position: sticky;
-  top: 16px;
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: min(100% - 96px, 740px);
   min-height: 58px;
-  margin: 70px auto 0;
+  margin: 0;
   padding: 10px 12px 10px 16px;
   border: 1px solid rgba(255, 255, 255, 0.76);
   border-radius: 32px;
@@ -349,13 +351,81 @@ h1::first-line,
 }
 
 .logo-strip {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  padding: 30px 48px 62px;
-  color: rgba(73, 86, 105, 0.42);
-  font-size: 18px;
+  position: relative;
+  overflow: hidden;
+  padding: 30px 0 62px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  animation: logo-slide 28s linear infinite;
+}
+
+.logo-strip:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 168px;
+  height: 62px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 18px;
+  color: rgba(44, 58, 77, 0.58);
+  font-size: 22px;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 14px 40px rgba(39, 83, 123, 0.06);
+}
+
+.logo-etsy {
+  color: rgba(242, 93, 34, 0.72);
+  font-family: Georgia, serif;
+  font-weight: 700;
+}
+
+.logo-ebay {
+  color: rgba(0, 100, 210, 0.72);
+  letter-spacing: 0;
+}
+
+.logo-shopify {
+  color: rgba(31, 134, 75, 0.72);
+}
+
+.logo-tiktok {
+  color: rgba(13, 20, 34, 0.72);
+}
+
+.logo-amazon {
+  color: rgba(31, 36, 45, 0.64);
   font-weight: 800;
+}
+
+.logo-web {
+  color: rgba(18, 99, 174, 0.66);
+}
+
+@keyframes logo-slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 9px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-track {
+    animation: none;
+  }
 }
 
 .intro {
@@ -785,7 +855,7 @@ textarea:focus {
 
   .site-header {
     width: calc(100% - 24px);
-    margin-top: 12px;
+    top: 12px;
   }
 
   .main-nav {
@@ -806,7 +876,6 @@ textarea:focus {
     padding-inline: 24px;
   }
 
-  .logo-strip,
   .metrics,
   .feature-grid,
   .contact-cards,
@@ -833,6 +902,12 @@ textarea:focus {
     padding-inline: 15px;
   }
 
+  .logo-card {
+    min-width: 142px;
+    height: 54px;
+    font-size: 18px;
+  }
+
   .section {
     padding-block: 62px;
   }
@@ -857,7 +932,6 @@ textarea:focus {
     width: 200px;
   }
 
-  .logo-strip,
   .metrics,
   .feature-grid,
   .steps,
